@@ -1,0 +1,13 @@
+* Code 128 Barcodes in Haskell
+
+This is a Haskell library for generating Code 128 barcodes in PDF
+format, which is described [[http://en.wikipedia.org/wiki/Code_128][on Wikipedia]].
+
+The width of the stripes and the height of the barcode are
+configurable. Two modes of operation are supported:
+ * Constructing a PDF directly in a =ByteString=, and
+ * Constructing an action in HPDF's =Draw= monad, for composing the
+   barcode with other drawings.
+
+Simple heuristics are used to choose efficient coding
+schemes. However, the encoding is not presently optimal.
