@@ -77,7 +77,7 @@ barcodePDF :: BarcodeConfig -> String -> IO ByteString
 barcodePDF config str =
   case barcodeSize config str of
     Left err     -> fail (show err)
-    Right (w, h) ->
+    Right (w, h) -> return $
       pdfByteString standardDocInfo { compressed = False}
                     (PDFRect 0 0 (ceiling w) (ceiling h)) $ do
                       p <- addPage Nothing
